@@ -2,5 +2,10 @@
 - name: Setting up the Mioloverse
   hosts: myhosts
   become: yes
-  tasks:
-    - import_tasks: tasks/essentials.yaml
+
+  roles:
+    - role: system
+    - role: pyfix
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker
+

@@ -1,0 +1,11 @@
+ansible_python_interpreter: auto_silent
+ansible_user: miolo
+password: changeme
+ansible_shell: /bin/bash
+packages:
+  - vim
+  - neofetch
+  - htop
+  - tmux
+  - speedtest-cli
+

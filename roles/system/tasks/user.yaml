@@ -1,0 +1,27 @@
+
+- name: Ensure all groups are present
+  ansible.builtin.group:
+    name: "{{ item }}"
+  with_items:
+    - docker
+    - users
+    - "{{ ansible_user }}"
+
+- name: Create non-root user
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    password: "{{ password | password_hash('sha512') }}"
+    groups:
+      - sudo
+      - docker
+      - users
+    append: yes
+    shell: "{{ ansible_shell }}"
+    update_password: on_create
+
+
+- name: Enable Passwordless Sudo
+  ansible.builtin.lineinfile:
+    dest: /etc/sudoers
+    regexp: "^#wheel"
+    line: "{{ ansible_user }} ALL=(ALL) NOPASSWD:ALL"

@@ -1,0 +1,13 @@
+ansible_python_interpreter: auto_silent
+ansible_user: miolo
+ansible_shell: /bin/zsh
+packages:
+  - vim
+  - neofetch
+  - htop
+  - tmux
+  - speedtest-cli
+
+pip_install_packages:
+  - name: docker
+
