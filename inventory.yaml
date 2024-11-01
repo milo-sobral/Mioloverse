@@ -1,0 +1,12 @@
+myhosts:
+  hosts:
+    pretty:
+      ansible_host: 192.168.0.42
+  vars:
+    ansible_python_interpreter: auto_silent
+    ansible_user: miolo
+    packages:
+      - vim
+      - htop
+      - tmux
+      - speedtest-cli

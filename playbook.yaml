@@ -1,0 +1,6 @@
+---
+- name: Setting up the Mioloverse
+  hosts: myhosts
+  become: yes
+  tasks:
+    - import_tasks: tasks/essentials.yaml
